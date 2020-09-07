@@ -23,6 +23,22 @@ const router = createRouter({
                         page: true,
                     },
                 },
+                {
+                    path: '/icon-font',
+                    name: 'iconFont',
+                    component: () => import('../views/icon-font/Index.vue'),
+                    meta: {
+                        page: true,
+                    },
+                },
+                {
+                    path: '/test',
+                    name: 'test',
+                    component: () => import('../views/Test.vue'),
+                    meta: {
+                        page: true,
+                    },
+                },
             ],
         },
     ],
