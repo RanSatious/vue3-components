@@ -9,7 +9,7 @@
 import { reactive, toRef, watchEffect } from 'vue';
 import { getDialogProps, useDialog } from '../../mixins/dialog';
 export default {
-    name: 'CustomDialog',
+    name: 'DialogCustom',
     props: {
         ...getDialogProps(),
     },

@@ -14,6 +14,7 @@ export const getDialogProps = () => {
         },
     };
 };
+
 export const useDialog = (props, context) => {
     const localVisible = computed({
         get() {
