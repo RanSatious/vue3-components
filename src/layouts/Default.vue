@@ -6,7 +6,7 @@
         </a-layout-header>
         <a-layout>
             <a-layout-sider>
-                slider
+                <nav-menu></nav-menu>
             </a-layout-sider>
             <a-layout-content>
                 <div class="content">
@@ -17,8 +17,12 @@
     </a-layout>
 </template>
 <script>
+import NavMenu from './Menu.vue';
 export default {
     name: 'DefaultLayout',
+    components: {
+        NavMenu,
+    },
 };
 </script>
 <style lang="less" scoped>
@@ -40,8 +44,6 @@ export default {
 
 .ant-layout-sider {
     background-color: #fff;
-    padding: 10px;
-    border-right: 1px solid #f7f7f7;
 }
 
 .ant-layout-content {
