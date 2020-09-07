@@ -32,6 +32,14 @@ const router = createRouter({
                     },
                 },
                 {
+                    path: '/progress-bar',
+                    name: 'progressBar',
+                    component: () => import('../views/progress-bar/Index.vue'),
+                    meta: {
+                        page: true,
+                    },
+                },
+                {
                     path: '/test',
                     name: 'test',
                     component: () => import('../views/Test.vue'),
