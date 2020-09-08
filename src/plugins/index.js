@@ -1,8 +1,9 @@
 import ui from './ui';
-import component from '../components';
+import components from '../components';
+import directives from '../directives';
 
 export default app => {
-    [ui, component].forEach(plugin => {
+    [ui, components, directives].forEach(plugin => {
         app.use(plugin);
     });
 };

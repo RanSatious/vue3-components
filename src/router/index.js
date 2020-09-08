@@ -40,6 +40,14 @@ const router = createRouter({
                     },
                 },
                 {
+                    path: '/loading',
+                    name: 'loading',
+                    component: () => import('../views/loading/Index.vue'),
+                    meta: {
+                        page: true,
+                    },
+                },
+                {
                     path: '/test',
                     name: 'test',
                     component: () => import('../views/Test.vue'),

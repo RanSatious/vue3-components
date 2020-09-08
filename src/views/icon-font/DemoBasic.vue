@@ -8,7 +8,7 @@
     </div>
 </template>
 <style lang="less" scoped>
-/deep/.icon {
+::v-deep.icon {
     margin-right: 10px;
 }
 </style>
