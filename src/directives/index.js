@@ -1,7 +1,8 @@
 import loading from './loading';
+import title from './title';
 
 export default app => {
-    [loading].forEach(item => {
+    [loading, title].forEach(item => {
         app.use(item);
     });
 };

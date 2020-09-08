@@ -3,31 +3,41 @@ import { Spin } from 'ant-design-vue';
 import isNil from 'lodash/isNil';
 import './index.less';
 
-const SIZE = ['small', 'default', 'large'];
+const SIZES = ['small', 'default', 'large'];
 
-const normalizeOption = (option, oldOption) => {
+const defaultOption = {
+    loading: false,
+    size: 'large',
+    tip: '',
+    delay: 0,
+};
+
+const normalizeOption = option => {
     if (isNil(option)) {
         return {
+            ...defaultOption,
             loading: true,
         };
     }
 
     if (typeof option === 'boolean') {
         return {
+            ...defaultOption,
             loading: option,
         };
     }
 
     if (option && typeof option === 'object') {
         let data = {};
-        let { loading = oldOption.loading, tip = oldOption.tip, size = oldOption.size, delay = oldOption.delay } = option;
+        let { loading, tip, size, delay } = option;
+
         data.loading = !!loading;
 
         if (!isNil(tip)) {
-            data.tip = tip;
+            data.tip = String(tip);
         }
 
-        if (SIZE.includes(size)) {
+        if (SIZES.includes(size)) {
             data.size = size;
         }
 
@@ -35,18 +45,19 @@ const normalizeOption = (option, oldOption) => {
             data.delay = Math.max(0, Number(delay));
         }
 
-        return data;
+        return {
+            ...defaultOption,
+            ...data,
+        };
     }
 
-    return {
-        loading: false,
-    };
+    return defaultOption;
 };
 
 export default app => {
     app.directive('segma-loading', {
         mounted(el, { value }) {
-            const data = reactive(normalizeOption(value, { loading: false, tip: '', size: 'large', delay: 0 }));
+            const data = reactive(normalizeOption(value));
 
             let positonChanged = false;
             watch(
@@ -89,7 +100,7 @@ export default app => {
             el.vLoading = data;
         },
         updated(el, { value }) {
-            let { loading, tip, size, delay } = normalizeOption(value, el.vLoading);
+            let { loading, tip, size, delay } = normalizeOption(value);
             el.vLoading.loading = loading;
             el.vLoading.tip = tip;
             el.vLoading.size = size;
