@@ -4,7 +4,8 @@
              :ok-button-props="{loading}"
              :cancel-button-props="{loading}"
              :closable="!loading"
-             :mask-closable="false"
+             :mask-closable="!loading"
+             :keyboard="!loading"
              @ok="submit">
         <a-form ref="formRef"
                 :model="form"
@@ -31,9 +32,9 @@ export default {
             },
             ...useDialogForm(props, context, {
                 form: reactive({
-                    name: 'name'
-                })
-            })
+                    name: 'name',
+                }),
+            }),
         };
     },
 };
