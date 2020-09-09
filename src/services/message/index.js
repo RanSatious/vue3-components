@@ -24,8 +24,12 @@ function Message(options) {
                                 // eslint-disable-next-line prefer-promise-reject-errors
                                 reject('cancel');
                             }
-                            instance.unmount();
-                            host.remove();
+
+                            // wait closing animation done
+                            setTimeout(() => {
+                                instance.unmount();
+                                host.remove();
+                            }, 300);
                         },
                     });
             },
