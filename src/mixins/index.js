@@ -1,4 +1,5 @@
-import useDialog from './dialog';
-import useDialogForm from './dialog-form';
+import { getDialogProps, useDialog } from './dialog';
+import { getDialogFormProps, useDialogForm } from './dialog-form';
+import { getDragProps, useDrag } from './drag-resize/drag';
 
-export { useDialog, useDialogForm };
+export { getDialogProps, useDialog, getDialogFormProps, useDialogForm, getDragProps, useDrag };

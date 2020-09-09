@@ -64,6 +64,14 @@ const router = createRouter({
                     },
                 },
                 {
+                    path: '/drag',
+                    name: 'drag',
+                    component: () => import('../views/drag/Index.vue'),
+                    meta: {
+                        page: true,
+                    },
+                },
+                {
                     path: '/test',
                     name: 'test',
                     component: () => import('../views/Test.vue'),
