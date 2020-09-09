@@ -8,7 +8,8 @@
 </template>
 <script>
 import { ref } from 'vue';
-import { getDragProps, useDrag } from '../../mixins';
+import { getDragProps, useDrag } from './drag';
+
 export default {
     name: 'ElementDrag',
     props: {
@@ -19,7 +20,6 @@ export default {
         const { dragStyle } = useDrag(props, context, {
             self,
         });
-        console.log(dragStyle);
         return {
             self,
             dragStyle,
@@ -30,5 +30,6 @@ export default {
 <style lang="less" scoped>
 .element-drag {
     position: absolute;
+    user-select: none;
 }
 </style>

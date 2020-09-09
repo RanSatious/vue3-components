@@ -1,29 +1,32 @@
 <!-- 基本用法 -->
 <template>
     <div class="container">
-        <drag-vue v-model:top="data.top"
-                  v-model:left="data.left"
-                  :step="50"
-                  class="drag">
-            drag me!
-        </drag-vue>
+        <resize-vue v-model:top="top"
+                    v-model:left="left"
+                    v-model:width="width"
+                    v-model:height="height"
+                    class="drag">
+            resize me!
+        </resize-vue>
     </div>
 </template>
 <script>
-import { reactive } from 'vue';
-import DragVue from '../../mixins/drag-resize/Drag.vue';
+import { reactive, toRefs } from 'vue';
+import ResizeVue from '../../mixins/drag-resize/Resize.vue';
 
 export default {
     components: {
-        DragVue,
+        ResizeVue,
     },
     setup() {
         const data = reactive({
             top: 100,
             left: 100,
+            width: 200,
+            height: 200,
         });
         return {
-            data,
+            ...toRefs(data),
         };
     },
 };
@@ -36,10 +39,6 @@ export default {
 
     .drag {
         background-color: #fff;
-        width: 100px;
-        height: 100px;
-        cursor: move;
-        white-space: nowrap;
     }
 }
 </style>

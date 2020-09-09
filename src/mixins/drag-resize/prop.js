@@ -20,16 +20,3 @@ export const getRectProps = () => ({
         default: 200,
     },
 });
-
-export const getResizeProps = () => ({
-    ...getRectProps(),
-    // x/y/all
-    mode: {
-        type: String,
-        default: 'all',
-    },
-    border: {
-        type: Number,
-        default: 10,
-    },
-});

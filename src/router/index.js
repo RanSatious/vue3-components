@@ -72,6 +72,14 @@ const router = createRouter({
                     },
                 },
                 {
+                    path: '/resize',
+                    name: 'resize',
+                    component: () => import('../views/resize/Index.vue'),
+                    meta: {
+                        page: true,
+                    },
+                },
+                {
                     path: '/test',
                     name: 'test',
                     component: () => import('../views/Test.vue'),
