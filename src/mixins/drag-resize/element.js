@@ -1,11 +1,8 @@
 import { reactive } from 'vue';
 
 export const useElement = (props, context) => {
-    const element = reactive({
+    return reactive({
         // drag/resize
         action: '',
     });
-    return {
-        element,
-    };
 };

@@ -80,6 +80,14 @@ const router = createRouter({
                     },
                 },
                 {
+                    path: '/drag-resize',
+                    name: 'dragResize',
+                    component: () => import('../views/drag-resize/Index.vue'),
+                    meta: {
+                        page: true,
+                    },
+                },
+                {
                     path: '/test',
                     name: 'test',
                     component: () => import('../views/Test.vue'),

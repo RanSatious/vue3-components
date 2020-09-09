@@ -26,9 +26,7 @@ export const getDragProps = () => ({
     },
 });
 
-export const useDrag = (props, context, { self }) => {
-    const { element } = useElement(props, context);
-
+export const useDrag = (props, context, { self, element = useElement(props, context) }) => {
     const data = reactive({
         dragging: false,
         start: {

@@ -15,9 +15,7 @@ export const getResizeProps = () => ({
     },
 });
 
-export const useResize = (props, context, { self }) => {
-    const element = useElement(props, context);
-    console.log(props);
+export const useResize = (props, context, { self, element = useElement(props, context) }) => {
     const data = reactive({
         cursor: [],
         resizing: false,
