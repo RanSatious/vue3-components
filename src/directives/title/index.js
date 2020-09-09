@@ -77,6 +77,7 @@ function Title(container, options) {
         timer: {
             show: null,
             hide: null,
+            destroy: null,
         },
         mouse: {
             x: 0,
@@ -90,16 +91,17 @@ function Title(container, options) {
         () => data.show,
         async val => {
             await nextTick();
-            console.log(data.show);
 
             if (val) {
                 document.body.appendChild(host);
             } else {
-                if (instance) {
-                    instance.unmount();
-                    instance = null;
-                }
-                host.remove();
+                setTimeout(() => {
+                    if (instance) {
+                        instance.unmount();
+                        instance = null;
+                    }
+                    host.remove();
+                }, 200);
             }
         },
         {
